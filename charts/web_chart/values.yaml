@@ -1,0 +1,40 @@
+deployment:
+  name: preview-dev
+  image: gingerous/weatherapp_k8s
+  tag: 1.1.3
+  service:
+    name: deployment-dev-service
+    type: ClusterIP
+    protocol: TCP
+    port: 80
+    targetPort: 8000
+
+
+secrets:
+  deployment:
+    name: deployment-secret-dev
+    refresh: 30s
+    target:
+      name: secrets-env-dev
+    key:
+      name: API_KEY
+
+  vault:
+    name: vault-dev-backend
+    server: "http://vault.vault.svc.cluster.local:8200"
+    path: "secret"
+    version: "v1" # Replace it to v2 if you create secret version 2.
+    key:
+      path: dev-secrets
+      property: WEATHER_API_KEY
+    auth:
+      name: vault-dev-token
+      key: token
+
+
+ingress:
+  name: applications-ingress
+  classname: nginx
+  deployment:
+    subdomain: weather
+    host: ginger-ous.click

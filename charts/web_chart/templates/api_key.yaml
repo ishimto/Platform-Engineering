@@ -1,0 +1,17 @@
+apiVersion: external-secrets.io/v1
+kind: ExternalSecret
+metadata:
+  name: {{ .Values.secrets.deployment.name }}
+spec:
+  refreshInterval: {{ .Values.secrets.deployment.refresh }}
+  secretStoreRef:
+    name: {{ .Values.secrets.vault.name }}
+    kind: ClusterSecretStore
+  target:
+    name: {{ .Values.secrets.deployment.target.name }}
+    creationPolicy: Owner
+  data:
+  - secretKey: {{ .Values.secrets.deployment.key.name }}
+    remoteRef:
+      key: {{ .Values.secrets.vault.key.path }}
+      property: {{ .Values.secrets.vault.key.property }}
