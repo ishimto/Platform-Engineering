@@ -1,0 +1,17 @@
+deployment:
+  name: pod-platform
+  namespace: platform-eng
+  image: gingerous/platform-eng
+  tag: 1.1.4
+  service:
+    name: service-pod-platform
+    type: ClusterIP
+    protocol: TCP
+    port: 80
+    targetPort: 5000
+
+sa:
+  name: platform-sa
+
+secret:
+  namespace: default
