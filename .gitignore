@@ -1,0 +1,14 @@
+*
+!**/*/
+!.gitignore
+!*.html
+!*.md
+!*.txt
+!*.sh
+!*.py
+!*.yaml
+!*.yml
+!Dockerfile
+!_helpers.tpl
+!*.tpl
+.venv
