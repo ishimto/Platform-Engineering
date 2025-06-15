@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>Action Result</title></head>
+<body>
+  <h2 style="color: {{ 'green' if success else 'red' }};">
+    {{ 'succeeded' if success else 'failed' }}
+  </h2>
+  <pre>{{ logs }}</pre>
+  <a href="/">Main Menu</a>
+</body>
+</html>

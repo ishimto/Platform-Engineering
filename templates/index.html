@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Self Service Tool Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            margin-bottom: 2rem;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 300px;
+        }
+        a.button {
+            padding: 1rem;
+            background-color: #007BFF;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.2s ease-in-out;
+        }
+        a.button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Developer Self Service Portal</h1>
+    <div class="button-container">
+        <a href="/create" class="button">Create Env</a>
+        <a href="/status" class="button">Env Status</a>
+        <a href="/delete" class="button">Delete Env</a>
+    </div>
+</body>
+</html>
+
