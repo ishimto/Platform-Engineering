@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app: {{ .Values.deployment.name }}
+      annotations:
+        redeploy-ts: "{{ now | unixTimestamp }}"
     spec:
       containers:
       - name: {{ .Values.deployment.name }}

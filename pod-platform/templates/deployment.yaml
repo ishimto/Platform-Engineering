@@ -12,9 +12,12 @@ spec:
     metadata:
       labels:
         app: {{ .Values.deployment.name }}
+      annotations:
+        redeploy-ts: "{{ now | unixTimestamp }}"
     spec:
       serviceAccountName: {{ .Values.sa.name }}
       containers:
       - name: {{ .Values.deployment.name }}
         image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
+        imagePullPolicy: {{ .Values.deployment.imagePullPolicy }}
 
