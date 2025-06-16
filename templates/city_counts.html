@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{{ user }} environment</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; }
+        .summary { margin-bottom: 20px; }
+        .line { padding: 4px 0; }
+        .back-link { margin-top: 20px; display: inline-block; color: #007bff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>stats data</h1>
+    <div class="summary">
+        <strong>Namespace:</strong> {{ namespace }}<br>
+        <strong>Release:</strong> {{ release }}
+    </div>
+
+    {% if counts %}
+        {% for city, count in counts %}
+            <div class="line">{{ city }}: {{ count }}</div>
+        {% endfor %}
+    {% else %}
+        <div>not found any stats</div>
+    {% endif %}
+    <a href="/">Main Menu</a>
+</body>
+</html>
+

@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template
 from modules.actions import *
+from modules.mongo import *
 
 app = Flask(__name__)
 
@@ -57,6 +58,19 @@ def status():
     if "No resources found" in out:
         code = 1
     return render_template('result.html', logs=out, success=(code == 0))
+
+
+@app.route('/stats', methods=['GET', 'POST'])
+def stats():
+    if request.method == 'GET':
+        return render_template('stats.html')
+    
+    user = request.form['username'].strip().lower()
+    ns = f"dev-{user}"
+    release = f"dev-{user}-app"
+    counts = get_city_counts(release, ns)
+
+    return render_template("city_counts.html", counts=counts, namespace=ns, release=release)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port="5000")
