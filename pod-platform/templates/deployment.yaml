@@ -13,7 +13,7 @@ spec:
       labels:
         app: {{ .Values.deployment.name }}
       annotations:
-        redeploy-ts: "{{ now | unixTimestamp }}"
+        redeploy-ts: "{{ now }}"
     spec:
       serviceAccountName: {{ .Values.sa.name }}
       containers:
