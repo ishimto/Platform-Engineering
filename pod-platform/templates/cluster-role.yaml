@@ -20,22 +20,17 @@ rules:
   verbs: ["get", "create", "update", "patch", "list"]
 
 - apiGroups: ["external-secrets.io"]
-  resources: ["clustersecretstores"]
+  resources: ["externalsecrets", "secretstores"]
   verbs: ["get", "create", "update", "patch"]
-
-- apiGroups: ["external-secrets.io"]
-  resources: ["externalsecrets"]
-  verbs: ["get", "create", "update", "patch"]
-
 
 # MongoDB
 - apiGroups: ["networking.k8s.io"]
   resources: ["networkpolicies"]
-  verbs: ["get", "create", "list", "watch"]
+  verbs: ["get", "create", "list", "watch", "patch"]
 
 - apiGroups: ["policy"]
   resources: ["poddisruptionbudgets"]
-  verbs: ["get", "list", "create", "watch"]
+  verbs: ["get", "list", "create", "watch", "patch"]
 
 - apiGroups: [""]
   resources: ["serviceaccounts"]
