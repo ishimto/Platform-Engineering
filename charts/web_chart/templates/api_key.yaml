@@ -6,7 +6,7 @@ spec:
   refreshInterval: {{ .Values.secrets.deployment.refresh }}
   secretStoreRef:
     name: {{ .Values.secrets.vault.name }}
-    kind: ClusterSecretStore
+    kind: SecretStore
   target:
     name: {{ .Values.secrets.deployment.target.name }}
     creationPolicy: Owner
