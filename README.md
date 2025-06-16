@@ -16,13 +16,22 @@ A web-based self-service portal that allows developers to manage their developme
 - Kubernetes cluster
 - Helm
 - Vault server
+- ESO
 - Docker (for building/running the container)
+
+Consider installing ESO&Vault using the following script [run.sh](https://github.com/ishimto/argocd/blob/main/run.sh) if you don't have it yet.
+
+## Cluster Prerequisites
+
+- Vault secret in path: "secrets/dev-secrets" kv v1 with the next value: WEATHER_API_KEY=<API TOKEN>
+- K8s secret Opaque named "vault-dev-token" in default namespace,
+  contains dev token with at least privileged to path "secrets/dev-secrets" within vault.
 
 ## Installation
 
 1. Clone the repository:
 ```sh
-git clone [Platform Eng](https://github.com/ishimto/Platform-Engineering)
+git clone https://github.com/ishimto/Platform-Engineering
 cd Platform-Engineering
 ```
 
