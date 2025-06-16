@@ -20,7 +20,7 @@ def deploy_helm(release, namespace, image_tag, user):
         "--namespace", namespace,
         "--set", f"deployment.tag={image_tag}",
         "--set", f"ingress.deployment.subdomain={user}",
-        "--set", f"configmaps.mongodb.login=mongodb://root:changeme@mongodb.{namespace}.svc.cluster.local:27017"
+        "--set", f"configmaps.mongodb.login=mongodb://root:changeme@{release}-mongodb.{namespace}.svc.cluster.local:27017"
     ]
     return run_cmd(cmd)
 
