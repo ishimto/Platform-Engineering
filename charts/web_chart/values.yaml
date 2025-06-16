@@ -9,6 +9,11 @@ deployment:
     port: 80
     targetPort: 8000
 
+configmaps:
+  mongodb:
+    name: mongodb-cm
+    login: "mongodb://root:changeme@mongodb.default.svc.cluster.local:27017"
+
 
 secrets:
   deployment:

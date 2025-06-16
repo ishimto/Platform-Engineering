@@ -26,10 +26,14 @@ def deploy():
     secret_out, code = copy_secret("vault-dev-token", "default", ns)
     logs.append(secret_out)
 
-    helm_out, code = deploy_helm(release, ns, tag, user)
+    helm_out, helm_code = deploy_helm(release, ns, tag, user)
+    logs.append(helm_out)
+    
+    helm_out, mongo_code = deploy_mongodb(release, ns)
     logs.append(helm_out)
 
-    return render_template('result.html', logs="\n".join(logs), success=(code == 0))
+
+    return render_template('result.html', logs="\n".join(logs), success=(mongo_code == 0 and helm_code == 0))
 
 
 @app.route('/delete', methods=['GET', 'POST'])

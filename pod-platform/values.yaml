@@ -2,7 +2,7 @@ deployment:
   name: pod-platform
   namespace: platform-eng
   image: gingerous/platform-eng
-  tag: 1.1.4
+  tag: 1.1.11
   service:
     name: service-pod-platform
     type: ClusterIP

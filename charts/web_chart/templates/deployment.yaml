@@ -16,5 +16,7 @@ spec:
       - name: {{ .Values.deployment.name }}
         image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
         envFrom:
+        - configMapRef:
+            name: {{ .Values.configmaps.mongodb.name }}
         - secretRef:
             name: {{ .Values.secrets.deployment.target.name }}

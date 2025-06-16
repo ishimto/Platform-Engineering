@@ -8,7 +8,7 @@ rules:
   verbs: ["create", "delete"]
 
 - apiGroups: [""]
-  resources: ["pods","services", "secrets"]
+  resources: ["pods","services", "secrets", "configmaps"]
   verbs: ["get", "create", "update","patch", "list"]
 
 - apiGroups: ["apps"]
@@ -26,6 +26,20 @@ rules:
 - apiGroups: ["external-secrets.io"]
   resources: ["externalsecrets"]
   verbs: ["get", "create", "update", "patch"]
+
+
+# MongoDB
+- apiGroups: ["networking.k8s.io"]
+  resources: ["networkpolicies"]
+  verbs: ["get", "create", "list", "watch"]
+
+- apiGroups: ["policy"]
+  resources: ["poddisruptionbudgets"]
+  verbs: ["get", "list", "create", "watch"]
+
+- apiGroups: [""]
+  resources: ["serviceaccounts"]
+  verbs: ["get", "list", "create", "watch"]
 
 ---
 
