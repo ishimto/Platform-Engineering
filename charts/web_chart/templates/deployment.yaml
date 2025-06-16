@@ -17,6 +17,7 @@ spec:
       containers:
       - name: {{ .Values.deployment.name }}
         image: {{ .Values.deployment.image }}:{{ .Values.deployment.tag }}
+        imagePullPolicy: {{ .Values.deployment.imagePullPolicy }}
         envFrom:
         - configMapRef:
             name: {{ .Values.configmaps.mongodb.name }}

@@ -1,7 +1,8 @@
 deployment:
   name: preview-dev
   image: gingerous/weatherapp_k8s
-  tag: 1.1.3
+  tag: 1.1.4-test
+  imagePullPolicy: Always
   service:
     name: deployment-dev-service
     type: ClusterIP
